@@ -4,6 +4,7 @@ from dash import Dash, dcc, html, dash_table
 import plotly.express as px
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
+import os
 
 UPCH = "UNIVERSIDAD PERUANA CAYETANO HEREDIA"
 
@@ -555,4 +556,5 @@ app.layout = html.Div([
 ])
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8050))  # Render asigna el puerto
+    app.run(host="0.0.0.0", port=port, debug=False)
